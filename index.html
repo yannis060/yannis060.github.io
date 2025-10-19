@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>te iubesc 💖</title>
     <style>
       body {
@@ -23,49 +23,46 @@
         animation: fadeIn 2s ease forwards;
       }
 
+      /* container to preserve position/spacing similar to your original layout */
       .heart {
-        position: relative;
-        width: 100px;
-        height: 90px;
+        width: 140px;         /* visual size of the heart */
+        height: 140px;
         margin-top: 30px;
-        background: #ff4b81;
-        transform: rotate(-45deg);
+        display: inline-block;
+        /* keep transform-origin center so scaling/pulse stays centered */
+        transform-origin: center;
         animation: pulse 1.5s infinite;
       }
 
-      .heart::before,
-      .heart::after {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: #ff4b81;
-        border-radius: 50%;
-      }
-
-      .heart::before {
-        top: -50px;
-        left: 0;
-      }
-
-      .heart::after {
-        top: 0;
-        left: 50px;
+      /* make sure the svg scales responsively to the chosen container size */
+      .heart svg {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
 
       @keyframes pulse {
-        0%, 100% { transform: rotate(-45deg) scale(1); }
-        50% { transform: rotate(-45deg) scale(1.1); }
+        0%, 100% { transform: scale(1); }
+        50%     { transform: scale(1.1); }
       }
 
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        to   { opacity: 1; transform: translateY(0); }
       }
     </style>
   </head>
   <body>
     <h1>te iubesc</h1>
-    <div class="heart"></div>
+
+    <!-- SVG heart - perfectly symmetric and crisp -->
+    <div class="heart" aria-hidden="true">
+      <svg viewBox="0 0 32 29" xmlns="http://www.w3.org/2000/svg" role="img" >
+        <!-- path creates a classic heart shape; fill matches your pink -->
+        <path
+          d="M23.6 0C20.9 0 18.6 1.5 16 3.6 13.4 1.5 11.1 0 8.4 0 3.8 0 0 3.6 0 8.6 0 18 16 29 16 29s16-11 16-20.4C32 3.6 28.2 0 23.6 0z"
+          fill="#ff4b81" />
+      </svg>
+    </div>
   </body>
 </html>

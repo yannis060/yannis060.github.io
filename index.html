@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8">
+    <title>te iubesc 💖</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ffd6e0, #ffe6f2);
+        font-family: 'Poppins', sans-serif;
+      }
+
+      h1 {
+        font-size: 5rem;
+        color: #ff4b81;
+        text-shadow: 0 0 20px rgba(255, 75, 129, 0.3);
+        margin: 0;
+        animation: fadeIn 2s ease forwards;
+      }
+
+      .heart {
+        position: relative;
+        width: 100px;
+        height: 90px;
+        margin-top: 30px;
+        background: #ff4b81;
+        transform: rotate(-45deg);
+        animation: pulse 1.5s infinite;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: #ff4b81;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -50px;
+        left: 0;
+      }
+
+      .heart::after {
+        top: 0;
+        left: 50px;
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: rotate(-45deg) scale(1); }
+        50% { transform: rotate(-45deg) scale(1.1); }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>te iubesc</h1>
+    <div class="heart"></div>
+  </body>
+</html>
